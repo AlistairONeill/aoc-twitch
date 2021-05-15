@@ -8,7 +8,7 @@ abstract class AbstractSolution {
     abstract fun part2(): Any
 
     private val file get() = File("input/day$day.txt")
-    private val text get() = file.readText()
+    val text get() = file.readText()
     protected val lines get() = file.readLines().filter(String::isNotBlank)
     protected val csv get() = text.split(",")
 }

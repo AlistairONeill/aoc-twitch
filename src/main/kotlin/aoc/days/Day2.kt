@@ -23,4 +23,6 @@ class Day2: AbstractSolution() {
         }
         throw Exception("We didn't find a solution. Sad face")
     }
+
+    fun process(program: List<Int>) = IntCodeComputer(program).run()
 }

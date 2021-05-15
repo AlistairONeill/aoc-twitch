@@ -6,11 +6,24 @@ class IntCodeComputer(private val program: List<Int>) {
 
     private class STOP: Exception()
 
-    fun run(noun: Int, verb: Int): Int {
+    private fun reset() {
         data = program.toTypedArray()
         index = 0
+    }
+
+    fun run(noun: Int, verb: Int): Int {
+        reset()
         data[1] = noun
         data[2] = verb
+        return go()
+    }
+
+    fun run(): Int {
+        reset()
+        return go()
+    }
+
+    private fun go(): Int {
         try {
             while(true) {
                 applyIntCode()
